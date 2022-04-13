@@ -1,13 +1,20 @@
 import React, { useEffect } from "react";
-import "./login.css";
+import styled from 'styled-components';
 import { ToastContainer } from "react-toastify";
-
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import Loading from "../Loading/Loading";
-
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/apiCalls";
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-Color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Login = () => {
   const history = useHistory(); 
@@ -32,7 +39,8 @@ const Login = () => {
 
 
   return (
-    <div className="container-fluid mt-5">
+    <Container>
+      
       <div className="row">
         <div className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
           <h1 className="text-center mb-5">Enter the App</h1>
@@ -115,7 +123,8 @@ const Login = () => {
         </div>
       </div>
       <ToastContainer />
-    </div>
+
+    </Container>
   );
 };
 
