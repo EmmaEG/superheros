@@ -9,47 +9,44 @@ import { login } from "../../redux/apiCalls";
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
   background-color: gray;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-size: cover;
 `;
 
 const Wrapper = styled.div`
-  width: 40%;
-  padding: 5% 7%;
-  border-radius: 15px;
+  width: 30vw;
+  padding: 20px;
+  border-radius: 10px;
   background-color: white;
+  position: absolute;
 `;
 
 const Title = styled.h1`
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 300;
-`;
-
-const Input = styled.input`
-  flex: 1;
-  min-width: 40%;
-  margin: 10px 0px;
-  padding: 10px;
-  min-width: -webkit-fill-available;
-  max-width: -webkit-fill-available;
+  text-align: center;
 `;
 
 const Button = styled.button`
   width: 100%;
   border: none;
+  border-radius: 5px;
   padding: 15px 20px;
-  background-color: teal;
+  background-color: #0a3f58;
   color: white;
   cursor: pointer;
   margin: 10px 0px;
-  &:disabled {
-    color: grey;
-    cursor: not-allowed;
-  }
 `;
+
+const LoadingWrapper = styled.div`
+  width: 100vw;
+`;
+
 
 const Login = () => {
   const history = useHistory();
@@ -102,14 +99,38 @@ const Login = () => {
           {(formik) => {
             return (
               <Form>
-                <Input type="email" name="email" placeholder="Enter an email" />
-                <ErrorMessage name="email" component="p" />
-                <Input
+                <Field
+                  style={{ width: "100%", margin: "10px 0px", padding: "10px" }}
+                  type="email"
+                  name="email"
+                  placeholder="Enter an email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="p"
+                  style={{
+                    color: "#0a3f58",
+                    width: "100%",
+                    textAlign: "center",
+                    margin: 0,
+                  }}
+                />
+                <Field
+                  style={{ width: "100%", margin: "10px 0px", padding: "10px" }}
                   type="password"
                   name="password"
                   placeholder="Enter a password"
                 />
-                <ErrorMessage name="password" component="p" />
+                <ErrorMessage
+                  name="password"
+                  component="p"
+                  style={{
+                    color: "#0a3f58",
+                    width: "100%",
+                    textAlign: "center",
+                    margin: 0,
+                  }}
+                />
                 <Button type="submit" disabled={!formik.isValid}>
                   LOGIN
                 </Button>
@@ -117,17 +138,15 @@ const Login = () => {
             );
           }}
         </Formik>
-
-        <div className="row">
-          {isFetching ? (
-            <div className="d-flex justify-content-center mt-5">
-              <Loading />
-            </div>
-          ) : null}
-        </div>
-
-        <ToastContainer />
       </Wrapper>
+      <LoadingWrapper>
+        {isFetching ? (
+          <div className="d-flex justify-content-center mt-5">
+            <Loading />
+          </div>
+        ) : null}
+      </LoadingWrapper>
+      <ToastContainer />
     </Container>
   );
 };

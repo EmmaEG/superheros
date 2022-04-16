@@ -1,14 +1,27 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 
-import "./loading.css";
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Spinner = styled.div`
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  vertical-align: -0.125em;
+  border: 0.55em solid #000000;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: 0.75s linear infinite spinner-border;
+`;
 
 const Loading = () => {
   return (
-    <div className='d-flex justify-content-center'>
-      <div className='spinner' role='status'>
-        {/* <span className='visually-hidden'>Loading...</span> */}
-      </div>
-    </div>
+    <Container>
+      <Spinner></Spinner>
+    </Container>
   );
 };
 

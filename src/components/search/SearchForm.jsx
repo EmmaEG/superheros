@@ -1,11 +1,24 @@
 import React, { useState } from "react";
-import "./searchForm.css";
+import styled from "styled-components";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import SearchResults from "../searchResults/SearchResults";
 
 import axios from "axios";
 import { toast } from "react-toastify";
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const Wrapper = styled.div`
+  width: inherit;
+`;
+
+// .styleInput {
+//   border: 1px solid #000000;
+// }
 
 const SearchForm = () => {
   const [superheroData, setSuperheroData] = useState([]);
@@ -42,8 +55,8 @@ const SearchForm = () => {
   };
 
   return (
-    <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-      <div className="row justify-content-center">
+    <Container>
+      <Wrapper>
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -76,7 +89,15 @@ const SearchForm = () => {
                   </button>
                 </div>
                 <ErrorMessage
-                  className="mb-2 p-2 text-center fw-bold bg-info"
+                  style={{
+                    backgroundColor: "#4b8ead",
+                    color: "#0a3f58",
+                    width: "100%",
+                    height: "35px",
+                    textAlign: "center",
+                    alignItems: "center",
+                    margin: 0,
+                  }}
                   name="searchHero"
                   component="p"
                 />
@@ -84,17 +105,14 @@ const SearchForm = () => {
             );
           }}
         </Formik>
-      </div>
-
-      <div className="row">
         <SearchResults
           superheroData={superheroData}
           setSuperheroData={setSuperheroData}
           loading={loading}
           setLoading={setLoading}
         />
-      </div>
-    </div>
+      </Wrapper>
+    </Container>
   );
 };
 
