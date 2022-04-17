@@ -39,18 +39,16 @@ const Right = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: white;
-  color: black;
+  background-color: #0a3f58;
+  color: #ffffff;
   font-size: 15px;
   padding: 7px 10px;
   border: none;
   border-radius: 5px;
   margin-inline: 5px;
-  text-transform: uppercase;
   position: relative;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  transition: 2ms;
+  &:hover {background-color: #052e41};
 `;
 
 const Topbar = () => {
@@ -75,7 +73,7 @@ const Topbar = () => {
           <Right>
             <Button>
               <NavLink
-                style={{ color: "black", textDecoration: "none" }}
+                style={{ color: "#ffffff", textDecoration: "none" }}
                 to="/home"
                 exact
               >
@@ -84,7 +82,7 @@ const Topbar = () => {
             </Button>
             <Button>
               <NavLink
-                style={{ color: "black", textDecoration: "none" }}
+                style={{ color: "#ffffff", textDecoration: "none" }}
                 to="/team"
                 exact
               >

@@ -10,10 +10,37 @@ import { toast } from "react-toastify";
 const Container = styled.div`
   display: flex;
   width: 100%;
+  justify-content: center;
 `;
 
 const Wrapper = styled.div`
-  width: inherit;
+  width: 40vw;
+`;
+
+const Button = styled.button`
+  width: 15%;
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #000000;
+  color: #212529;
+  padding: 5px 10px;
+  transition: 2ms;
+  background-color: #ffffff;
+  cursor: pointer;
+  &:hover {
+    background-color: #212529;
+  }
+  &:hover {
+    color: #ffffff;
+  }
+`;
+
+const FomrWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 10px;
 `;
 
 // .styleInput {
@@ -71,32 +98,33 @@ const SearchForm = () => {
           {(formik) => {
             return (
               <Form className="search-form">
-                <div className="input-group my-3">
+                <FomrWrapper>
                   <Field
-                    className="form-control"
-                    style={{ border: "1px solid #000000" }}
+                    style={{
+                      border: "1px solid #000000",
+                      width: "85%",
+                      marginInline: "0px",
+                      padding: "5px",
+                      borderTopLeftRadius: "5px",
+                      borderBottomLeftRadius: "5px",
+                      borderTopRightRadius: "0px",
+                      borderBottomRightRadius: "0px",
+                    }}
                     type="text"
                     name="searchHero"
                     placeholder="Search a hero"
                   />
-                  <button
-                    className="btn btn-outline-dark"
-                    type="submit"
-                    id="button-addon2"
-                    disabled={!formik.isValid}
-                  >
+                  <Button type="submit" disabled={!formik.isValid}>
                     Search
-                  </button>
-                </div>
+                  </Button>
+                </FomrWrapper>
                 <ErrorMessage
                   style={{
                     backgroundColor: "#4b8ead",
                     color: "#0a3f58",
                     width: "100%",
-                    height: "35px",
                     textAlign: "center",
-                    alignItems: "center",
-                    margin: 0,
+                    padding: "8px",
                   }}
                   name="searchHero"
                   component="p"

@@ -41,12 +41,13 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin: 10px 0px;
+  transition: 2ms;
+  &:hover {background-color: #052e41};
 `;
 
 const LoadingWrapper = styled.div`
   width: 100vw;
 `;
-
 
 const Login = () => {
   const history = useHistory();

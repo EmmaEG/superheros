@@ -11,6 +11,7 @@ const Spinner = styled.div`
   width: 4rem;
   height: 4rem;
   vertical-align: -0.125em;
+  background-color: #063653ab;
   border: 0.55em solid #000000;
   border-right-color: transparent;
   border-radius: 50%;
