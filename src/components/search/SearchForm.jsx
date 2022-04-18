@@ -15,6 +15,8 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 40vw;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Button = styled.button`
@@ -42,10 +44,6 @@ const FomrWrapper = styled.div`
   width: 100%;
   margin-bottom: 10px;
 `;
-
-// .styleInput {
-//   border: 1px solid #000000;
-// }
 
 const SearchForm = () => {
   const [superheroData, setSuperheroData] = useState([]);

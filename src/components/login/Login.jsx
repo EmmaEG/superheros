@@ -142,9 +142,7 @@ const Login = () => {
       </Wrapper>
       <LoadingWrapper>
         {isFetching ? (
-          <div className="d-flex justify-content-center mt-5">
             <Loading />
-          </div>
         ) : null}
       </LoadingWrapper>
       <ToastContainer />

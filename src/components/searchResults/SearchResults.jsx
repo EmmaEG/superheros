@@ -1,13 +1,87 @@
 import React from "react";
+import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { addHero } from "../../redux/teamSlice";
+import Loading from "../../components/Loading/Loading";
 import { toast } from "react-toastify";
 
-import { useDispatch, useSelector } from "react-redux";
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-import Loading from "../../components/Loading/Loading";
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
-import { addHero } from "../../redux/teamSlice";
+const LoadingWrapper = styled.div`
+  width: 100%;
+`;
 
-import "./searchResults.css";
+const Ul = styled.ul`
+  padding: 0px;
+`;
+
+const Li = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px;
+  border: 0.5px solid #000000;
+  border-radius: 5px;
+  padding-right: 5px;
+`;
+
+const LiWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Img = styled.img`
+  width: 80px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+`;
+
+const Button = styled.button`
+  height: 40px;
+  width: 40px;
+  color: #ffffff;
+  background-color: #000000;
+`;
+
+const P = styled.p`
+  margin: 2px;
+`;
+
+const LiGoodAlignment = styled.p`
+  background-color: #198754;
+  margin: 2px;
+  font-size: 13px;
+  padding: 2px;
+  border-radius: 5px;
+  text-transform: uppercase;
+`;
+
+const LiBadAlignment = styled.p`
+  background-color: #dc3545;
+  margin: 2px;
+  font-size: 13px;
+  padding: 2px;
+  border-radius: 5px;
+  text-transform: uppercase;
+`;
+
+const LiNeutralAlignment = styled.p`
+  background-color: #5a5657;
+  margin: 2px;
+  font-size: 13px;
+  padding: 2px;
+  border-radius: 5px;
+  text-transform: uppercase;
+`;
 
 const SearchResults = ({ superheroData, loading }) => {
   const dispatch = useDispatch();
@@ -59,60 +133,61 @@ const SearchResults = ({ superheroData, loading }) => {
       }
     }
     dispatch(addHero(hero));
+    toast("Ok", {
+      position: "bottom-right",
+      style: {
+        textAlign: "center",
+        width: "20%",
+      },
+      type: "success",
+      autoClose: 1000,
+    });
   };
 
   return (
-    <div>
+    <Container>
       {loading ? (
-        <div className="d-flex justify-content-center mt-5">
+        <LoadingWrapper>
           <Loading />
-        </div>
+        </LoadingWrapper>
       ) : (
-        <ul className="list-group">
-          {superheroData.map((hero) => (
-            <li
-              className="list-group-item d-flex justify-content-between align-items-center m-2"
-              key={hero.id}
-            >
-              <div className="d-flex justify-content-between align-items-center">
-                <img
-                  className="rounded"
-                  src={hero.image.url}
-                  alt={hero.name}
-                  width="70"
-                />
-                <p className="m-2"> {hero.name} - </p>
+        <Wrapper>
+          <Ul>
+            {superheroData.map((hero) => (
+              <Li key={hero.id}>
+                <LiWrapper>
+                  <Img src={hero.image.url} alt={hero.name} />
+                  <P> {hero.name} - </P>
 
-                {hero.biography.alignment === "good" && (
-                  <p className="badge bg-success my-2 text-uppercase">
-                    {hero.biography.alignment}
-                  </p>
-                )}
+                  {hero.biography.alignment === "good" && (
+                    <LiGoodAlignment>
+                      {hero.biography.alignment}
+                    </LiGoodAlignment>
+                  )}
 
-                {hero.biography.alignment === "neutral" && (
-                  <p className="badge bg-secondary my-2 text-uppercase">
-                    {hero.biography.alignment}
-                  </p>
-                )}
+                  {hero.biography.alignment === "neutral" && (
+                    <LiNeutralAlignment>
+                      {hero.biography.alignment}
+                    </LiNeutralAlignment>
+                  )}
 
-                {hero.biography.alignment === "bad" && (
-                  <p className="badge bg-danger my-2 text-uppercase">
-                    {hero.biography.alignment}
-                  </p>
-                )}
-              </div>
-              {/* to pass only one hero we need ()=> function() we can't pass only one hero by this form onClick={function()} */}
-              <button
-                className="btn btn-dark"
-                onClick={() => handleAddHero(hero)}
-              >
-                +
-              </button>
-            </li>
-          ))}
-        </ul>
+                  {hero.biography.alignment === "bad" && (
+                    <LiBadAlignment>{hero.biography.alignment}</LiBadAlignment>
+                  )}
+                </LiWrapper>
+                {/* to pass only one hero we need ()=> function() we can't pass only one hero by this form onClick={function()} */}
+                <Button
+                  className="btn btn-dark"
+                  onClick={() => handleAddHero(hero)}
+                >
+                  +
+                </Button>
+              </Li>
+            ))}
+          </Ul>
+        </Wrapper>
       )}
-    </div>
+    </Container>
   );
 };
 
