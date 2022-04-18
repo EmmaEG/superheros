@@ -60,7 +60,8 @@ const LiGoodAlignment = styled.p`
   background-color: #198754;
   margin: 2px;
   font-size: 13px;
-  padding: 2px;
+  font-weight: bold;
+  padding: 2px 5px;
   border-radius: 5px;
   text-transform: uppercase;
 `;
@@ -69,7 +70,8 @@ const LiBadAlignment = styled.p`
   background-color: #dc3545;
   margin: 2px;
   font-size: 13px;
-  padding: 2px;
+  font-weight: bold;
+  padding: 2px 5px;
   border-radius: 5px;
   text-transform: uppercase;
 `;
@@ -78,7 +80,8 @@ const LiNeutralAlignment = styled.p`
   background-color: #5a5657;
   margin: 2px;
   font-size: 13px;
-  padding: 2px;
+  font-weight: bold;
+  padding: 2px 5px;
   border-radius: 5px;
   text-transform: uppercase;
 `;

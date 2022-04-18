@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  width: 15%;
+  position: absolute;
   margin-left: -1px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
