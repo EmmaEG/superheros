@@ -5,14 +5,12 @@ import { addHero } from "../../redux/teamSlice";
 import Loading from "../../components/Loading/Loading";
 import { toast } from "react-toastify";
 
-const Container = styled.div`
+const Container = styled.div``;
+
+const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
 `;
 
 const LoadingWrapper = styled.div`
@@ -20,7 +18,8 @@ const LoadingWrapper = styled.div`
 `;
 
 const Ul = styled.ul`
-  padding: 0px;
+  width: 100%;
+  padding: 7px;
 `;
 
 const Li = styled.li`

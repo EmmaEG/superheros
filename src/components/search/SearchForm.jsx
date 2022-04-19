@@ -9,18 +9,22 @@ import { toast } from "react-toastify";
 
 const Container = styled.div`
   display: flex;
-  width: 100%;
   justify-content: center;
 `;
 
 const Wrapper = styled.div`
-  width: 40vw;
+  width: 45vw;
+  justify-content: center;
+  align-items: center;
+`;
+
+const FomrWrapper = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const Button = styled.button`
-  position: absolute;
   margin-left: -1px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -38,11 +42,6 @@ const Button = styled.button`
   &:hover {
     color: #ffffff;
   }
-`;
-
-const FomrWrapper = styled.div`
-  width: 100%;
-  margin-bottom: 10px;
 `;
 
 const SearchForm = () => {
