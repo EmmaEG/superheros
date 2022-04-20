@@ -1,9 +1,54 @@
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 import axios from "axios";
-import "./details.css";
 import { useLocation } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+
+const Container = styled.div``;
+
+const Wrapper = styled.div`
+  display: flex;
+  padding: 20px;
+`;
+
+const Left = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Right = styled.div`
+  flex: 1;
+  display: flex;
+  // justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const ImgContainer = styled.div`
+  height: 85vh;
+`;
+
+const Img = styled.img`
+  height: 100%;
+  border-radius: 15px;
+`;
+
+const Button = styled.button`
+  background-color: #0a3f58;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-inline: 5px;
+  position: relative;
+  margin-top: auto;
+  transition: 2ms;
+  &:hover {background-color: #052e41};
+`;
 
 const Details = () => {
   const history = useHistory();
@@ -26,68 +71,59 @@ const Details = () => {
     fetchData();
   }, [id]);
 
- 
-
   return (
-    <div className="container p-4">
-      <div className="row">
-          {heroDetails.response === "success" ? (
-            <div
-              key={heroDetails.id}
-              className="d-flex justify-content-between"
+    <Container>
+      {heroDetails.response === "success" ? (
+        <Wrapper>
+          <Left>
+            <ImgContainer>
+              <Img src={heroDetails.image.url} alt={heroDetails.name} />
+            </ImgContainer>
+          </Left>
+          <Right>
+            <div id="details">
+              <h1 id="heroTitle">{heroDetails.name}</h1>
+              <hr />
+              <p className="info">
+                <strong>Peso:</strong> {heroDetails.appearance.weight[1]}
+              </p>
+              <p className="info">
+                <strong>Altura:</strong> {heroDetails.appearance.height[1]}
+              </p>
+              <p className="info">
+                <strong>Nombre completo:</strong>{" "}
+                {heroDetails.biography["full-name"]}
+              </p>
+              <p className="info">
+                <strong>Alias:</strong>{" "}
+                {heroDetails.biography["aliases"].join(", ")}
+              </p>
+              <p className="info">
+                <strong>Color de ojos:</strong>{" "}
+                {heroDetails.appearance["eye-color"]}
+              </p>
+              <p className="info">
+                <strong>Color de pelo:</strong>{" "}
+                {heroDetails.appearance["hair-color"]}
+              </p>
+              <p className="info">
+                <strong>Lugar de trabajo:</strong> {heroDetails.work.base}
+              </p>
+            </div>
+            <Button
+              className="btn btn-dark back"
+              onClick={() => history.goBack()}
             >
-              <img
-                style={{ height: "70vh" }}
-                src={heroDetails.image.url}
-                alt={heroDetails.name}
-                id="detailsImg"
-                draggable={false}
-              />
-              <div id="details">
-                <h1 id="heroTitle">{heroDetails.name}</h1>
-                <hr />
-                <p className="info">
-                  <strong>Peso:</strong> {heroDetails.appearance.weight[1]}
-                </p>
-                <p className="info">
-                  <strong>Altura:</strong> {heroDetails.appearance.height[1]}
-                </p>
-                <p className="info">
-                  <strong>Nombre completo:</strong>{" "}
-                  {heroDetails.biography["full-name"]}
-                </p>
-                <p className="info">
-                  <strong>Alias:</strong>{" "}
-                  {heroDetails.biography["aliases"].join(", ")}
-                </p>
-                <p className="info">
-                  <strong>Color de ojos:</strong>{" "}
-                  {heroDetails.appearance["eye-color"]}
-                </p>
-                <p className="info">
-                  <strong>Color de pelo:</strong>{" "}
-                  {heroDetails.appearance["hair-color"]}
-                </p>
-                <p className="info">
-                  <strong>Lugar de trabajo:</strong> {heroDetails.work.base}
-                </p>
-              </div>
-              <div>
-                <button
-                  className="btn btn-dark back"
-                  onClick={() => history.goBack()}
-                >
-                  Regresar
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="d-flex justify-content-center">
-              <Loading />
-            </div>
-          )}
+              Regresar
+            </Button>
+          </Right>
+        </Wrapper>
+      ) : (
+        <div className="d-flex justify-content-center">
+          <Loading />
         </div>
-    </div>
+      )}
+    </Container>
   );
 };
 

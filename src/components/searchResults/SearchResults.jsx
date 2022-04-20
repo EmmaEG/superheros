@@ -136,7 +136,7 @@ const SearchResults = ({ superheroData, loading }) => {
     }
     dispatch(addHero(hero));
     toast("Ok", {
-      position: "bottom-right",
+      position: "bottom-left",
       style: {
         textAlign: "center",
         width: "20%",

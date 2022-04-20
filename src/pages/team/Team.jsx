@@ -10,10 +10,12 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  flex-wrap: wrap;
-  padding: 50px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  grid-gap: 30px;
   justify-content: center;
+  align-items: center;
+  padding: 50px;
 `;
 
 const CardContainer = styled.div`
@@ -32,7 +34,7 @@ const CardContainer = styled.div`
 `;
 
 const CardImg = styled.img`
-  height: 84%;
+  height: 85%;
   object-fit: fill;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
