@@ -20,9 +20,10 @@ const TitleWrapper = styled.div`
 
 const SeacrhContainer = styled.div`
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 `;
 
 const Title = styled.h3``;

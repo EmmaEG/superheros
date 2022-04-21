@@ -25,14 +25,15 @@ const FomrWrapper = styled.div`
 `;
 
 const Button = styled.button`
-  margin-left: -1px;
+font-weight: bold;
+  margin-left: -2px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   color: #212529;
-  padding: 5px 10px;
+  padding: 6px 10px;
   transition: 2ms;
   background-color: #ffffff;
   cursor: pointer;
@@ -94,18 +95,19 @@ const SearchForm = () => {
         >
           {(formik) => {
             return (
-              <Form className="search-form">
+              <Form>
                 <FomrWrapper>
                   <Field
                     style={{
-                      border: "1px solid #000000",
+                      border: "2px solid #000000",
                       width: "85%",
                       marginInline: "0px",
-                      padding: "5px",
+                      padding: "6px",
                       borderTopLeftRadius: "5px",
                       borderBottomLeftRadius: "5px",
                       borderTopRightRadius: "0px",
                       borderBottomRightRadius: "0px",
+                      fontWeight: "bold",
                     }}
                     type="text"
                     name="searchHero"

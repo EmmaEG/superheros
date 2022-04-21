@@ -101,7 +101,7 @@ const Login = () => {
             return (
               <Form>
                 <Field
-                  style={{ width: "100%", margin: "10px 0px", padding: "10px" }}
+                  style={{ width: "-webkit-fill-available", margin: "10px 0px", padding: "10px" }}
                   type="email"
                   name="email"
                   placeholder="Enter an email"
@@ -117,7 +117,7 @@ const Login = () => {
                   }}
                 />
                 <Field
-                  style={{ width: "100%", margin: "10px 0px", padding: "10px" }}
+                  style={{ width: "-webkit-fill-available", margin: "10px 0px", padding: "10px" }}
                   type="password"
                   name="password"
                   placeholder="Enter a password"

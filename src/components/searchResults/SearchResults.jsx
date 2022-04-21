@@ -45,10 +45,17 @@ const Img = styled.img`
 `;
 
 const Button = styled.button`
+  border: none;
   height: 40px;
   width: 40px;
   color: #ffffff;
   background-color: #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 2ms;
+  &:hover {
+    background-color: #000000e6;
+  }
 `;
 
 const P = styled.p`
@@ -140,6 +147,7 @@ const SearchResults = ({ superheroData, loading }) => {
       style: {
         textAlign: "center",
         width: "20%",
+        backgroundColor: "#198754",
       },
       type: "success",
       autoClose: 1000,

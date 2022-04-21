@@ -28,7 +28,7 @@ const Right = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  height: 85vh;
+  height: 80vh;
 `;
 
 const Img = styled.img`
