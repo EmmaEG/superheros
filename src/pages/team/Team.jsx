@@ -4,21 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { deleteHero } from "../../redux/teamSlice";
 
-const Container = styled.div`
-  background-color: gray;
-  display: grid;
-  display: flex;
-  justify-content: center;
-  height: calc(100vh - 60px);
-`;
+const Container = styled.div``;
 
 const Wrapper = styled.div`
+  background-color: gray;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CardWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 0fr);
-  grid-gap: 30px;
   justify-content: center;
-  align-items: center;
   padding: 50px;
+  flex-wrap: wrap;
 `;
 
 const CardContainer = styled.div`
@@ -70,14 +70,14 @@ const DeleteButton = styled.button`
   border: none;
   border-radius: 5px;
   margin-inline: 5px;
-  position: relative;
+  cursor: pointer;
   transition: 2ms;
   &:hover {
     background-color: #c72534;
   }
 `;
 
-const AddButton = styled.button`
+const DetailButton = styled.button`
   color: #ffffff;
   background-color: #0dcaf0;
   border-color: #dc3545;
@@ -89,8 +89,8 @@ const AddButton = styled.button`
   border: none;
   border-radius: 5px;
   margin-inline: 5px;
-  position: relative;
   transition: 2ms;
+  cursor: pointer;
   &:hover {
     background-color: #06b9dd;
   }
@@ -99,10 +99,11 @@ const AddButton = styled.button`
 const Span = styled.span``;
 
 const EmptyWrapper = styled.div`
+  background-color: gray;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: inherit;
+  height: calc(100vh - 60px);
 `;
 
 const H5 = styled.h5`
@@ -111,6 +112,19 @@ const H5 = styled.h5`
 `;
 
 const H4 = styled.h4`
+  color: #ffffff;
+`;
+
+const TitleWrapper = styled.div`
+  text-align: center;
+  margin-top: 40px;
+`;
+
+const Title = styled.h3`
+  color: #ffffff;
+`;
+
+const SubTitle = styled.p`
   color: #ffffff;
 `;
 
@@ -131,24 +145,30 @@ const Team = () => {
         </EmptyWrapper>
       ) : (
         <Wrapper>
-          {team.heroes.map((hero) => (
-            <CardContainer key={hero.id}>
-              <CardImg src={hero.image.url} alt={hero.name} />
-              <CardInfo>
-                <H5>{hero.name}</H5>
-                <CardButtons>
-                  <DeleteButton onClick={() => handleDeleteHero(hero)}>
-                    <Span>-</Span>
-                  </DeleteButton>
-                  <Link to={`/details/${hero.id}`}>
-                    <AddButton>
-                      <Span>+</Span>
-                    </AddButton>
-                  </Link>
-                </CardButtons>
-              </CardInfo>
-            </CardContainer>
-          ))}
+          <TitleWrapper>
+            <Title>Hey buddy, here you can see your team</Title>
+            <SubTitle>You can see your hero details and delete heroes</SubTitle>
+          </TitleWrapper>
+          <CardWrapper>
+            {team.heroes.map((hero) => (
+              <CardContainer key={hero.id}>
+                <CardImg src={hero.image.url} alt={hero.name} />
+                <CardInfo>
+                  <H5>{hero.name}</H5>
+                  <CardButtons>
+                    <DeleteButton onClick={() => handleDeleteHero(hero)}>
+                      <Span>-</Span>
+                    </DeleteButton>
+                    <Link to={`/details/${hero.id}`}>
+                      <DetailButton>
+                        <Span>+</Span>
+                      </DetailButton>
+                    </Link>
+                  </CardButtons>
+                </CardInfo>
+              </CardContainer>
+            ))}
+          </CardWrapper>
         </Wrapper>
       )}
     </Container>

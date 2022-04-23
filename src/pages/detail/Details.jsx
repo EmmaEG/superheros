@@ -10,6 +10,7 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   display: flex;
   padding: 20px;
+  justify-content: space-between;
 `;
 
 const Left = styled.div`
@@ -22,7 +23,6 @@ const Left = styled.div`
 const Right = styled.div`
   flex: 1;
   display: flex;
-  // justify-content: flex-start;
   align-items: center;
   justify-content: space-between;
 `;
@@ -47,7 +47,17 @@ const Button = styled.button`
   position: relative;
   margin-top: auto;
   transition: 2ms;
-  &:hover {background-color: #052e41};
+  cursor: pointer;
+  &:hover {
+    background-color: #052e41;
+  }
+`;
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
 `;
 
 const Details = () => {
@@ -119,9 +129,9 @@ const Details = () => {
           </Right>
         </Wrapper>
       ) : (
-        <div className="d-flex justify-content-center">
+        <LoadingWrapper>
           <Loading />
-        </div>
+        </LoadingWrapper>
       )}
     </Container>
   );

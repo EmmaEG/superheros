@@ -14,6 +14,7 @@ const App = () => {
     <Router>
       <Topbar />
       <>
+        <ToastContainer />
         <Switch>
           <Route exact path="/">
             <Login />
@@ -22,7 +23,6 @@ const App = () => {
           <PrivateRoute path={"/team"} exact component={Team} />
           <PrivateRoute path={"/details/:id"} exact component={Details} />
         </Switch>
-        <ToastContainer />
       </>
     </Router>
   );

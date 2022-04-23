@@ -42,7 +42,16 @@ const Button = styled.button`
   cursor: pointer;
   margin: 10px 0px;
   transition: 2ms;
-  &:hover {background-color: #052e41};
+  &:disabled {
+    background-color: #818080;
+    cursor: no-drop;
+    &:hover {
+      background-color: #818080;
+    }
+  }
+  &:hover {
+    background-color: #052e41;
+  }
 `;
 
 const LoadingWrapper = styled.div`
@@ -101,7 +110,11 @@ const Login = () => {
             return (
               <Form>
                 <Field
-                  style={{ width: "-webkit-fill-available", margin: "10px 0px", padding: "10px" }}
+                  style={{
+                    width: "-webkit-fill-available",
+                    margin: "10px 0px",
+                    padding: "10px",
+                  }}
                   type="email"
                   name="email"
                   placeholder="Enter an email"
@@ -117,7 +130,11 @@ const Login = () => {
                   }}
                 />
                 <Field
-                  style={{ width: "-webkit-fill-available", margin: "10px 0px", padding: "10px" }}
+                  style={{
+                    width: "-webkit-fill-available",
+                    margin: "10px 0px",
+                    padding: "10px",
+                  }}
                   type="password"
                   name="password"
                   placeholder="Enter a password"
@@ -140,11 +157,7 @@ const Login = () => {
           }}
         </Formik>
       </Wrapper>
-      <LoadingWrapper>
-        {isFetching ? (
-            <Loading />
-        ) : null}
-      </LoadingWrapper>
+      <LoadingWrapper>{isFetching ? <Loading /> : null}</LoadingWrapper>
       <ToastContainer />
     </Container>
   );
