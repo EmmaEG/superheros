@@ -29,7 +29,8 @@ const Li = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 0px;
+  height: 100px;
+  margin: 15px 0px;
   border: 0.5px solid #000000;
   border-radius: 5px;
   padding-right: 5px;
@@ -41,8 +42,15 @@ const LiWrapper = styled.div`
   align-items: center;
 `;
 
+const ImgWrapper = styled.div`
+  height: 100px;
+  margin-left: 0px;
+`;
+
 const Img = styled.img`
+  object-fit: cover;
   width: 80px;
+  height: inherit;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 `;
@@ -104,7 +112,7 @@ const SearchResults = ({ superheroData, loading }) => {
     const alignment = hero.biography.alignment;
     if (alignment === "neutral") {
       toast("You can't add neutral heroes in your team", {
-        position: "bottom-center",
+        position: "bottom-left",
         style: {
           textAlign: "center",
         },
@@ -118,7 +126,7 @@ const SearchResults = ({ superheroData, loading }) => {
         toast(
           "This hero already exist in your team, you can't add the same hero twice",
           {
-            position: "bottom-center",
+            position: "bottom-left",
             style: {
               textAlign: "center",
             },
@@ -133,7 +141,7 @@ const SearchResults = ({ superheroData, loading }) => {
         );
         if (alignmentArray.length === 3) {
           toast("you can't add more heroes in this alignment", {
-            position: "bottom-center",
+            position: "bottom-left",
             style: {
               textAlign: "center",
             },
@@ -169,7 +177,9 @@ const SearchResults = ({ superheroData, loading }) => {
             {superheroData.map((hero) => (
               <Li key={hero.id}>
                 <LiWrapper>
-                  <Img src={hero.image.url} alt={hero.name} />
+                  <ImgWrapper>
+                    <Img src={hero.image.url} alt={hero.name} />
+                  </ImgWrapper>
                   <P> {hero.name} - </P>
 
                   {hero.biography.alignment === "good" && (

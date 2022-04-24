@@ -66,7 +66,7 @@ const SearchForm = () => {
       if (data.response.includes("error")) {
         setLoading(false);
         toast("Superhero not exist, please try again", {
-          position: "bottom-center",
+          position: "bottom-left",
           type: "error",
           autoClose: 2000,
         });
@@ -121,7 +121,7 @@ const SearchForm = () => {
                   style={{
                     backgroundColor: "#4b8ead",
                     color: "#0a3f58",
-                    width: "100%",
+                    marginTop: "10px",
                     textAlign: "center",
                     padding: "8px",
                   }}

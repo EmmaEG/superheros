@@ -60,6 +60,16 @@ const LoadingWrapper = styled.div`
   height: calc(100vh - 60px);
 `;
 
+const DetailsWrapper = styled.div``;
+
+const H1 = styled.h1``;
+
+const P = styled.p``;
+
+const Strong = styled.strong``;
+
+const Hr = styled.hr``;
+
 const Details = () => {
   const history = useHistory();
   const [heroDetails, setHeroDetails] = useState([]);
@@ -91,37 +101,36 @@ const Details = () => {
             </ImgContainer>
           </Left>
           <Right>
-            <div id="details">
-              <h1 id="heroTitle">{heroDetails.name}</h1>
-              <hr />
-              <p className="info">
-                <strong>Peso:</strong> {heroDetails.appearance.weight[1]}
-              </p>
-              <p className="info">
-                <strong>Altura:</strong> {heroDetails.appearance.height[1]}
-              </p>
-              <p className="info">
-                <strong>Nombre completo:</strong>{" "}
+            <DetailsWrapper>
+              <H1>{heroDetails.name}</H1>
+              <Hr />
+              <P>
+                <Strong>Peso:</Strong> {heroDetails.appearance.weight[1]}
+              </P>
+              <P>
+                <Strong>Altura:</Strong> {heroDetails.appearance.height[1]}
+              </P>
+              <P>
+                <Strong>Nombre completo:</Strong>
                 {heroDetails.biography["full-name"]}
-              </p>
-              <p className="info">
-                <strong>Alias:</strong>{" "}
+              </P>
+              <P>
+                <Strong>Alias:</Strong>
                 {heroDetails.biography["aliases"].join(", ")}
-              </p>
-              <p className="info">
-                <strong>Color de ojos:</strong>{" "}
+              </P>
+              <P>
+                <Strong>Color de ojos:</Strong>
                 {heroDetails.appearance["eye-color"]}
-              </p>
-              <p className="info">
-                <strong>Color de pelo:</strong>{" "}
+              </P>
+              <P>
+                <Strong>Color de pelo:</Strong>
                 {heroDetails.appearance["hair-color"]}
-              </p>
-              <p className="info">
-                <strong>Lugar de trabajo:</strong> {heroDetails.work.base}
-              </p>
-            </div>
+              </P>
+              <P>
+                <Strong>Lugar de trabajo:</Strong> {heroDetails.work.base}
+              </P>
+            </DetailsWrapper>
             <Button
-              className="btn btn-dark back"
               onClick={() => history.goBack()}
             >
               Regresar

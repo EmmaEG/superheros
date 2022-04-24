@@ -141,7 +141,7 @@ const Team = () => {
     <Container>
       {team.heroes.length === 0 ? (
         <EmptyWrapper>
-          <H4>For now... Your team is empty</H4>
+          <H4>For now... Your team is empty, go home page and search your hero</H4>
         </EmptyWrapper>
       ) : (
         <Wrapper>
