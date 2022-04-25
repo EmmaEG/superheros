@@ -105,13 +105,13 @@ const Details = () => {
               <H1>{heroDetails.name}</H1>
               <Hr />
               <P>
-                <Strong>Peso:</Strong> {heroDetails.appearance.weight[1]}
+                <Strong>Weight:</Strong> {heroDetails.appearance.weight[1]}
               </P>
               <P>
-                <Strong>Altura:</Strong> {heroDetails.appearance.height[1]}
+                <Strong>height:</Strong> {heroDetails.appearance.height[1]}
               </P>
               <P>
-                <Strong>Nombre completo:</Strong>
+                <Strong>Full-name:</Strong>
                 {heroDetails.biography["full-name"]}
               </P>
               <P>
@@ -119,21 +119,21 @@ const Details = () => {
                 {heroDetails.biography["aliases"].join(", ")}
               </P>
               <P>
-                <Strong>Color de ojos:</Strong>
+                <Strong>Eye-color:</Strong>
                 {heroDetails.appearance["eye-color"]}
               </P>
               <P>
-                <Strong>Color de pelo:</Strong>
+                <Strong>Hair-color:</Strong>
                 {heroDetails.appearance["hair-color"]}
               </P>
               <P>
-                <Strong>Lugar de trabajo:</Strong> {heroDetails.work.base}
+                <Strong>Workplace:</Strong> {heroDetails.work.base}
               </P>
             </DetailsWrapper>
             <Button
               onClick={() => history.goBack()}
             >
-              Regresar
+              Return
             </Button>
           </Right>
         </Wrapper>

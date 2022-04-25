@@ -48,6 +48,7 @@ const Button = styled.button`
   margin-inline: 5px;
   position: relative;
   transition: 2ms;
+  cursor: pointer;
   &:hover {background-color: #052e41};
 `;
 
