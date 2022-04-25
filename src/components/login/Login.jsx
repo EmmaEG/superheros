@@ -6,6 +6,7 @@ import Loading from "../Loading/Loading";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/apiCalls";
+import { mobile } from '../../responsive'
 
 const Container = styled.div`
   width: 100vw;
@@ -16,6 +17,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-size: cover;
+
+  ${mobile({ height: "100vh" })}
+
 `;
 
 const Wrapper = styled.div`
@@ -24,6 +28,7 @@ const Wrapper = styled.div`
   border-radius: 10px;
   background-color: white;
   position: absolute;
+  ${mobile({ width: "75vw" })}
 `;
 
 const Title = styled.h1`

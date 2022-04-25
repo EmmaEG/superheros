@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { mobile } from "../../responsive";
 import { deleteHero } from "../../redux/teamSlice";
 
-const Container = styled.div``;
+const Container = styled.div`
+
+`;
 
 const Wrapper = styled.div`
   background-color: gray;
@@ -19,6 +22,13 @@ const CardWrapper = styled.div`
   justify-content: center;
   padding: 50px;
   flex-wrap: wrap;
+
+  ${mobile({
+    display: "flex",
+    width: "-webkit-fill-available",
+    height: "100vh"
+    
+  })}
 `;
 
 const CardContainer = styled.div`
@@ -104,6 +114,8 @@ const EmptyWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: calc(100vh - 60px);
+
+  ${mobile({ textAlign: "center", height: "100vh" })}
 `;
 
 const H5 = styled.h5`
@@ -113,6 +125,7 @@ const H5 = styled.h5`
 
 const H4 = styled.h4`
   color: #ffffff;
+  ${mobile({ width: "90%" })}
 `;
 
 const TitleWrapper = styled.div`
@@ -141,7 +154,9 @@ const Team = () => {
     <Container>
       {team.heroes.length === 0 ? (
         <EmptyWrapper>
-          <H4>For now... Your team is empty, go home page and search your hero</H4>
+          <H4>
+            For now... Your team is empty, go home page and search your hero
+          </H4>
         </EmptyWrapper>
       ) : (
         <Wrapper>

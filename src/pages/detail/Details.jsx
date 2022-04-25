@@ -1,16 +1,19 @@
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { mobile } from "../../responsive";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 
-const Container = styled.div``;
+const Container = styled.div`
+`;
 
 const Wrapper = styled.div`
   display: flex;
   padding: 20px;
   justify-content: space-between;
+  ${mobile({ display: "flex", flexDirection: "column", marginTop: "50px" })}
 `;
 
 const Left = styled.div`
@@ -29,11 +32,14 @@ const Right = styled.div`
 
 const ImgContainer = styled.div`
   height: 80vh;
+  ${mobile({ height: "100%" })}
+
 `;
 
 const Img = styled.img`
   height: 100%;
   border-radius: 15px;
+  ${mobile({ height: "80%", width: "100%" })}
 `;
 
 const Button = styled.button`
@@ -130,11 +136,7 @@ const Details = () => {
                 <Strong>Workplace:</Strong> {heroDetails.work.base}
               </P>
             </DetailsWrapper>
-            <Button
-              onClick={() => history.goBack()}
-            >
-              Return
-            </Button>
+            <Button onClick={() => history.goBack()}>Return</Button>
           </Right>
         </Wrapper>
       ) : (

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { mobile } from "../../responsive";
 import SearchForm from "../../components/search/SearchForm";
 
 const Container = styled.div`
@@ -11,11 +12,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 70vw;
+  ${mobile({ width: "100vw", padding: "10px", marginTop: "50px" })}
 `;
 
 const TitleWrapper = styled.div`
   text-align: center;
   margin-top: 40px;
+  ${mobile({ width: "100%" })}
 `;
 
 const SeacrhContainer = styled.div`

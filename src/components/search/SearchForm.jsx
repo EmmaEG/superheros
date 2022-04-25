@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { mobile } from "../../responsive";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import SearchResults from "../searchResults/SearchResults";
@@ -16,6 +17,8 @@ const Wrapper = styled.div`
   width: 45vw;
   justify-content: center;
   align-items: center;
+
+  ${mobile({ width: "90vw" })}
 `;
 
 const FomrWrapper = styled.div`
@@ -25,7 +28,7 @@ const FomrWrapper = styled.div`
 `;
 
 const Button = styled.button`
-font-weight: bold;
+  font-weight: bold;
   margin-left: -2px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

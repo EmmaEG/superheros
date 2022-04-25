@@ -6,11 +6,14 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/userSlice";
 import { useHistory } from "react-router-dom";
+import { mobile } from "../../responsive";
 
 const Containter = styled.div`
   height: 60px;
   background: gray;
   background: linear-gradient(90deg, #032f4e, #0a3f58 25%, #388c88);
+
+  ${mobile({ position: "fixed", top: "0", width: "-webkit-fill-available", zIndex: "1" })}
 `;
 
 const Wrapper = styled.div`
@@ -23,6 +26,7 @@ const Wrapper = styled.div`
 const Image = styled.img`
   width: 110px;
   cursor: pointer;
+  ${mobile({ width: "115px" })}
 `;
 
 const Left = styled.div`
@@ -36,6 +40,7 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  ${mobile({ alignItems: "center", justifyContent: "center" })}
 `;
 
 const Button = styled.button`
@@ -49,7 +54,11 @@ const Button = styled.button`
   position: relative;
   transition: 2ms;
   cursor: pointer;
-  &:hover {background-color: #052e41};
+  &:hover {
+    background-color: #052e41;
+  }
+
+  ${mobile({ padding: "7px 3px" })}
 `;
 
 const Topbar = () => {
