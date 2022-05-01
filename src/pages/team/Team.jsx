@@ -6,14 +6,19 @@ import { mobile } from "../../responsive";
 import { deleteHero } from "../../redux/teamSlice";
 
 const Container = styled.div`
-
+  ${mobile({
+    marginTop: "40px;",
+  })}
 `;
 
 const Wrapper = styled.div`
-  background-color: gray;
+  background-color: #808080;
   padding: 3px;
   display: flex;
   flex-direction: column;
+  ${mobile({
+    backgroundColor: "#ffffff",
+  })}
 `;
 
 const CardWrapper = styled.div`
@@ -26,8 +31,7 @@ const CardWrapper = styled.div`
   ${mobile({
     display: "flex",
     width: "-webkit-fill-available",
-    height: "100vh"
-    
+    height: "100vh",
   })}
 `;
 
@@ -44,6 +48,9 @@ const CardContainer = styled.div`
   background-color: #ffffff;
   position: relative;
   border-radius: 10px;
+  ${mobile({
+    backgroundColor: "#cfcbcb",
+  })}
 `;
 
 const CardImg = styled.img`
@@ -109,7 +116,7 @@ const DetailButton = styled.button`
 const Span = styled.span``;
 
 const EmptyWrapper = styled.div`
-  background-color: gray;
+  background-color: #808080;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,10 +142,16 @@ const TitleWrapper = styled.div`
 
 const Title = styled.h3`
   color: #ffffff;
+  ${mobile({
+    color: "#000000",
+  })}
 `;
 
 const SubTitle = styled.p`
   color: #ffffff;
+  ${mobile({
+    color: "#000000",
+  })}
 `;
 
 const Team = () => {
