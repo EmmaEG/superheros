@@ -15,6 +15,7 @@ TECNOLOGÍAS APLICADAS:
 LIBRERÍAS INSTALADAS PARA EL FRONTEND:
 * react-redux
 * redux-persist
+* formik
 * axios
 * styled-components
 * react-router-dom

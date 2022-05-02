@@ -6,8 +6,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 
-const Container = styled.div`
-`;
+const Container = styled.div``;
 
 const Wrapper = styled.div`
   display: flex;
